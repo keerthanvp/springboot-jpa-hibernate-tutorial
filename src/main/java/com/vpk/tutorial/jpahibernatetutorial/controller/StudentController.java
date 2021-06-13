@@ -1,5 +1,6 @@
 package com.vpk.tutorial.jpahibernatetutorial.controller;
 
+import com.vpk.tutorial.jpahibernatetutorial.entity.Passport;
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
 import com.vpk.tutorial.jpahibernatetutorial.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class StudentController {
     @DeleteMapping("/student/{id}")
     private ResponseEntity<Student> delete(@PathVariable Integer id){
         return new ResponseEntity<>(studentService.delete(id),HttpStatus.OK);
+    }
+
+    @PutMapping("/student")
+    private ResponseEntity<Student> update(@RequestBody Student student){
+        return new ResponseEntity<>(studentService.update(student), HttpStatus.OK);
     }
 }

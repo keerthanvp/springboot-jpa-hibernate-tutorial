@@ -1,5 +1,6 @@
 package com.vpk.tutorial.jpahibernatetutorial.service;
 
+import com.vpk.tutorial.jpahibernatetutorial.entity.Passport;
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface StudentService {
     List<Student> retrieve();
     Student retrieve(Integer id);
     Student delete(Integer id);
+    Student update(Student student);
 }

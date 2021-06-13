@@ -2,6 +2,7 @@ package com.vpk.tutorial.jpahibernatetutorial.service.impl;
 
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
 import com.vpk.tutorial.jpahibernatetutorial.exception.StudentNotFoundException;
+import com.vpk.tutorial.jpahibernatetutorial.repository.PassportRepository;
 import com.vpk.tutorial.jpahibernatetutorial.repository.StudentRepository;
 import com.vpk.tutorial.jpahibernatetutorial.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,10 @@ public class StudentServiceImpl implements StudentService {
             throw new StudentNotFoundException("Student Not Found: "+id);
         studentRepository.deleteById(id);
         return studentOptional.get();
+    }
+
+    @Override
+    public Student update(Student student) {
+        return studentRepository.save(student);
     }
 }

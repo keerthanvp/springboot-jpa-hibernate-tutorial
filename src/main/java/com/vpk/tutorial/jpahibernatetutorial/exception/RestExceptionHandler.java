@@ -20,4 +20,5 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         exceptionResponse.setTimestamp(LocalDateTime.now());
         return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
     }
+
 }
