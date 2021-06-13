@@ -1,6 +1,7 @@
 package com.vpk.tutorial.jpahibernatetutorial.service.impl;
 
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
+import com.vpk.tutorial.jpahibernatetutorial.exception.StudentNotFoundException;
 import com.vpk.tutorial.jpahibernatetutorial.repository.StudentRepository;
 import com.vpk.tutorial.jpahibernatetutorial.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class StudentServiceImpl implements StudentService {
     public Student retrieve(Integer id) {
         Optional<Student> studentOptional = studentRepository.findById(id);
         if (!studentOptional.isPresent())
-            throw new RuntimeException("Student Not Found: "+id);
+            throw new StudentNotFoundException("Student Not Found: "+id);
         return studentOptional.get();
     }
 
@@ -37,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
     public Student delete(Integer id) {
         Optional<Student> studentOptional = studentRepository.findById(id);
         if (!studentOptional.isPresent())
-            throw new RuntimeException("Student Not Found: "+id);
+            throw new StudentNotFoundException("Student Not Found: "+id);
         studentRepository.deleteById(id);
         return studentOptional.get();
     }
