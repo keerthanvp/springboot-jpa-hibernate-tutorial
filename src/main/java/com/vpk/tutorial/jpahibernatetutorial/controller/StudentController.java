@@ -1,6 +1,5 @@
 package com.vpk.tutorial.jpahibernatetutorial.controller;
 
-import com.vpk.tutorial.jpahibernatetutorial.entity.Passport;
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
 import com.vpk.tutorial.jpahibernatetutorial.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

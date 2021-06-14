@@ -2,7 +2,6 @@ package com.vpk.tutorial.jpahibernatetutorial.service.impl;
 
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
 import com.vpk.tutorial.jpahibernatetutorial.exception.StudentNotFoundException;
-import com.vpk.tutorial.jpahibernatetutorial.repository.PassportRepository;
 import com.vpk.tutorial.jpahibernatetutorial.repository.StudentRepository;
 import com.vpk.tutorial.jpahibernatetutorial.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

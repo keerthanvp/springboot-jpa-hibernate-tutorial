@@ -1,6 +1,5 @@
 package com.vpk.tutorial.jpahibernatetutorial.service;
 
-import com.vpk.tutorial.jpahibernatetutorial.entity.Passport;
 import com.vpk.tutorial.jpahibernatetutorial.entity.Student;
 
 import java.util.List;

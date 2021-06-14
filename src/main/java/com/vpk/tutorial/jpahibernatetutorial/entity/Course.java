@@ -1,31 +1,30 @@
 package com.vpk.tutorial.jpahibernatetutorial.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vpk.tutorial.jpahibernatetutorial.model.Rating;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @ToString
-public class Passport {
+public class Course {
 
     @Id
     @GeneratedValue
     private Integer id;
-    private String number;
+    private String description;
 
+    @OneToMany(mappedBy = "course")
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport")
-    private Student student;
-
-    public Passport(Integer id, String number) {
-        this.id = id;
-        this.number = number;
-    }
+    private List<Review> reviews;
 }

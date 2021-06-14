@@ -1,9 +1,9 @@
 package com.vpk.tutorial.jpahibernatetutorial.service.impl;
 
 import com.vpk.tutorial.jpahibernatetutorial.entity.Passport;
+import com.vpk.tutorial.jpahibernatetutorial.exception.PassportNotFoundException;
 import com.vpk.tutorial.jpahibernatetutorial.repository.PassportRepository;
 import com.vpk.tutorial.jpahibernatetutorial.service.PassportService;
-import org.hibernate.exception.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class PassportServiceImpl implements PassportService {
     public Passport retrieve(Integer id) {
         Optional<Passport> optionalPassport = passportRepository.findById(id);
         if (!optionalPassport.isPresent())
-            throw new RuntimeException("Passport Not Found: " + id);
+            throw new PassportNotFoundException("Passport Not Found: " + id);
         return optionalPassport.get();
     }
 
@@ -42,7 +42,7 @@ public class PassportServiceImpl implements PassportService {
     public Passport delete(Integer id) {
         Optional<Passport> optionalPassport = passportRepository.findById(id);
         if (!optionalPassport.isPresent())
-            throw new RuntimeException("Passport Not Found: " + id);
+            throw new PassportNotFoundException("Passport Not Found: " + id);
         passportRepository.deleteById(id);
         return optionalPassport.get();
     }
